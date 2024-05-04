@@ -1,0 +1,7 @@
+{
+  "name": "freshMilk-fe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
