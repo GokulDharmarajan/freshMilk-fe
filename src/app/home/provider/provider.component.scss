@@ -1,0 +1,79 @@
+.home-list {
+    position: relative;
+
+    .home-list-header {
+        display: flex;
+        padding: 54px 26px 53px 24px;
+        background: #0C77C3;
+        height: 120px;
+        gap: 20px;
+        font-size: 20px;
+        line-height: 24px;
+        color: #FFFFFF;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    .home-list-card {
+        background: #ffff;
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 220px);
+        top: 102px;
+        border-radius: 24px 24px 0px 0px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .provider-header {
+            font-size: 18px;
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+        .provider-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .provider-form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 9px;
+
+                .provider-form-content {
+                    font-size: 14px;
+                    font-weight: 400;
+                    text-transform: capitalize;
+                }
+
+                .provider-form-input {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #3D3D4E;
+                }
+            }
+
+            .provider-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;
+
+                ion-button {
+                    --background: #3fad3d;
+                    --background-hover: #3fad3d;
+                    --color: #fff;
+                    --border-width: 1px;
+                    --border-color: #3fad3d;
+                    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+                    text-transform: capitalize;
+                    font-size: 12px;
+                    height: 40px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

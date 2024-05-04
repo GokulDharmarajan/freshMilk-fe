@@ -1,0 +1,24 @@
+<div class="error" *ngIf="data?.invalid && (data?.dirty || data?.touched)">
+  <div class="error-container" *ngIf="data.errors?.required">
+    <span class="message"> {{ dataName }} is required.</span>
+  </div>
+  <div class="error-container"
+    *ngIf="data.errors?.pattern && !data.errors?.required && !data.errors?.minlength && !data.errors?.maxlength">
+    <span class="message">Special characters are not allowed</span>
+  </div>
+  <div class="error-container" *ngIf="data.errors?.minlength">
+    <span class="message">Minimum length should be greater than {{ minLength }}. </span>
+  </div>
+  <div class="error-container" *ngIf="data.errors?.maxlength">
+    <span class="message">Maximum length exceeded (maximum {{ maxLength }} characters).</span>
+  </div>
+  <div class="error-container" *ngIf="data.errors?.duplicate">
+    <span class="message"> {{ dataName }} Already exists.</span>
+  </div>
+  <div class="error-container" *ngIf="data.errors?.email">
+    <span class="message"> {{ dataName }} is invalid.</span>
+  </div>
+  <div class="error-container" *ngIf="data.errors?.accountMismatch">
+    <span class="message">{{ dataName }} mis match.</span>
+  </div>
+</div>

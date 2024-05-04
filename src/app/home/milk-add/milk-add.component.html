@@ -1,0 +1,55 @@
+<div class="home-list">
+  <div class="home-list-header">
+    <div class="back-icon" (click)="routeHome()">
+      <img src="../../../assets/home/back.svg" alt="">
+    </div>
+    <div class="home-header-content">
+      Milk store
+    </div>
+  </div>
+  <div class="home-list-card">
+    <div class="provider-header">
+      <div class="provider-icon">
+        S
+      </div>
+      <div class="provider-name">
+        Saravanan
+      </div>
+    </div>
+    <div class="provider-form" [formGroup]="milkAddForm">
+      <div class="provider-form-group">
+        <div class="provider-form-content">
+          liter
+        </div>
+        <div class="provider-form-input">
+          <ion-input aria-label="Custom input" placeholder="Enter liter" class="custom" formControlName="liter"
+            type="number"></ion-input>
+          <app-error-message [data]="formData['liter']" [dataName]="'liter'"></app-error-message>
+        </div>
+      </div>
+      <div class="provider-form-group">
+        <div class="provider-form-content">
+          Mililiter
+        </div>
+        <div class="provider-form-input">
+          <ion-input aria-label="Custom input" placeholder="Enter Mililiter" class="custom" formControlName="mililiter"
+            type="number"></ion-input>
+          <app-error-message [data]="formData['mililiter']" [dataName]="'Mililiter'"></app-error-message>
+        </div>
+      </div>
+      <div class="provider-form-group">
+        <div class="provider-form-content">
+          Fat
+        </div>
+        <div class="provider-form-input">
+          <ion-input aria-label="Custom input" placeholder="Enter Fat" class="custom" formControlName="fat"
+            type="number"></ion-input>
+          <app-error-message [data]="formData['fat']" [dataName]="'Fat'"></app-error-message>
+        </div>
+      </div>
+      <div class="provider-btn">
+        <ion-button shape="round" (click)="calculate()">Add list</ion-button>
+      </div>
+    </div>
+  </div>
+</div>

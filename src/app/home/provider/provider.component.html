@@ -1,0 +1,49 @@
+<div class="home-list">
+  <div class="home-list-header">
+    <div class="back-icon" (click)="routeHome()">
+      <img src="../../../assets/home/back.svg" alt="">
+    </div>
+    <div class="home-header-content">
+      provider
+    </div>
+  </div>
+  <div class="home-list-card">
+    <div class="provider-header">
+      craete new provider
+    </div>
+    <div class="provider-form" [formGroup]="providerForm">
+      <div class="provider-form-group">
+        <div class="provider-form-content">
+          provider ID
+        </div>
+        <div class="provider-form-input">
+          FM-0001
+        </div>
+      </div>
+      <div class="provider-form-group">
+        <div class="provider-form-content">
+          Name
+        </div>
+        <div class="provider-form-input">
+          <ion-input aria-label="Custom input" placeholder="Enter Name" class="custom"
+            formControlName="name"></ion-input>
+          <app-error-message [data]="formData['name']" [dataName]="'Name'"></app-error-message>
+        </div>
+      </div>
+      <div class="provider-form-group">
+        <div class="provider-form-content">
+          Mobile Number
+        </div>
+        <div class="provider-form-input">
+          <ion-input aria-label="Custom input" placeholder="Mobile Number" class="custom"
+            formControlName="mobileNumber"></ion-input>
+          <app-error-message [data]="formData['mobileNumber']" [dataName]="'Mobile'"></app-error-message>
+        </div>
+      </div>
+      <div class="provider-btn">
+        <ion-button shape="round">create new
+          Provider</ion-button>
+      </div>
+    </div>
+  </div>
+</div>

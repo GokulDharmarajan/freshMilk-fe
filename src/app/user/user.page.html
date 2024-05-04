@@ -1,0 +1,28 @@
+<div class="login">
+  <div class="login-header">
+    <ion-img src="../../assets/login/login-back.jpg"></ion-img>
+  </div>
+  <div class="login-card">
+    <div class="login-card-header">
+      Fresh Milk
+    </div>
+    <div class="form-section" [formGroup]="loginForm">
+      <div class="input-group">
+        <ion-input aria-label="Custom input" placeholder="Email" class="custom" formControlName="email"></ion-input>
+        <app-error-message [data]="formData['email']" [dataName]="'Email'"></app-error-message>
+      </div>
+      <div class="input-group">
+        <ion-input type="Password" class="custom" placeholder="Password" formControlName="password">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        <app-error-message [data]="formData['password']" [dataName]="'Password'"></app-error-message>
+      </div>
+    </div>
+    <div class="login-btn">
+      <ion-button shape="round" [disabled]="!loginForm.valid">Login</ion-button>
+    </div>
+    <div class="login-content">
+      Don't have an account? <span (click)="routeSignUp()">Sign up</span>
+    </div>
+  </div>
+</div>i
