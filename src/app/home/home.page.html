@@ -1,30 +1,47 @@
 <div class="home-component">
   <div class="home-header">
+    <div class="user-group">
+      <div class="user-timeing">
+        {{dateSetter ||'-'}}
+      </div>
+      <div class="user-name">
+        {{userName||'-'}}
+      </div>
+    </div>
     <div class="user-icon" (click)="routeProfile()">
-      G
+      {{userLogo}}
     </div>
   </div>
   <div class="home-card">
-    <div class="search-bar">
-      <ion-searchbar class="custom"></ion-searchbar>
+    <div class="provider-header">
+      <div class="provider-head">
+        Fresh Milk
+      </div>
+      <div class="search-bar">
+        <ion-searchbar class="custom" (ionInput)="onSearch($event)"></ion-searchbar>
+      </div>
     </div>
     <div class="provider-list">
-      <div class="provider-head">
-        our providers
-      </div>
-      <div class="provider-card" (click)="routeAdd()">
+      <div class="provider-card" (click)="routeAdd(i.id)" *ngFor="let i of provideList">
         <div class="provider-icon">
-          S
+          {{i.firstLetter||'-'}}
         </div>
         <div class="provider-card-list">
           <div class="provider-name">
-            Saravanan
+            {{i.providerName || '-'}}
           </div>
           <div class="provider-id">
-            FM-0001
+            {{i.providerId || '-'}}
           </div>
         </div>
       </div>
+    </div>
+    <div *ngIf="noData" class="noData">
+      <img src="../../assets/user-not-found.avif" alt="">
+      No more user data
+    </div>
+    <div *ngIf="noUser" class="createUser">
+      <img src="../../assets/createUser.svg" alt="" (click)="routeprovider()">
     </div>
   </div>
 </div>

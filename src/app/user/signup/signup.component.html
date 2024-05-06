@@ -23,10 +23,10 @@
       </div>
     </div>
     <div class="login-btn">
-      <ion-button shape="round" (click)="createAccount()" [disabled]="!signUpForm.valid">create new account</ion-button>
+      <ion-button shape="round" (click)="createAccount()">create new account</ion-button>
     </div>
     <div class="login-content">
-      Already have an account? <span routerLink="">Login here</span>
+      Already have an account? <span (click)="routeLogin()">Login here</span>
     </div>
   </div>
 </div>

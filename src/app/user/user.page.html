@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="login-btn">
-      <ion-button shape="round" [disabled]="!loginForm.valid">Login</ion-button>
+      <ion-button shape="round" (click)="login()">Login</ion-button>
     </div>
     <div class="login-content">
       Don't have an account? <span (click)="routeSignUp()">Sign up</span>

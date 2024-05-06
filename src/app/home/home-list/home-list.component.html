@@ -10,10 +10,10 @@
   <div class="home-list-card">
     <div class="profile-list">
       <div class="profile-icon">
-        G
+        {{userLogo}}
       </div>
       <div class="profile-name">
-        Gokul
+        {{userName}}
       </div>
     </div>
     <div class="new-file-list">
@@ -24,6 +24,36 @@
       <div class="new-files" (click)="routeCollect()">
         <ion-icon name="folder-outline"></ion-icon> collect milk list
       </div>
+      <div class="new-files" id="open-custom-dialog">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Logout
+      </div>
     </div>
   </div>
+</div>
+
+<div class="profile-dialog">
+  <ion-content class="ion-padding">
+    <ion-modal id="confirmation-modal" #modal trigger="open-custom-dialog">
+      <ng-template>
+        <div class="confirmation">
+          <div class="confirmation-header">
+            <div class="confirmation-header-content">Confirm Logout</div>
+            <div class="confirmation-header-img" (click)="closeModal()">
+              <img src="assets/close.svg" alt="close">
+            </div>
+          </div>
+          <div class="confirmation-content">Are you sure you want to log out?</div>
+          <div class="confirmation-btn-group">
+            <div class="close-btn">
+              <ion-button (click)="closeModal()">No</ion-button>
+            </div>
+            <div class="submit-btn">
+              <ion-button (click)="logout()">Yes, Logout</ion-button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
 </div>

@@ -17,7 +17,7 @@
           provider ID
         </div>
         <div class="provider-form-input">
-          FM-0001
+          {{providerId}}
         </div>
       </div>
       <div class="provider-form-group">
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="provider-btn">
-        <ion-button shape="round">create new
+        <ion-button shape="round" (click)="createProvider()">create new
           Provider</ion-button>
       </div>
     </div>

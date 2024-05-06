@@ -3,10 +3,30 @@
 
     .home-header {
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
         padding: 54px 26px 53px 24px;
         background: #0C77C3;
-        height: 248px;
+        height: 200px;
+
+        .user-group {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+
+            .user-timeing {
+                font-size: 18px;
+                text-transform: capitalize;
+                font-weight: 600;
+                color: #FFF;
+            }
+
+            .user-name {
+                font-size: 16px;
+                text-transform: capitalize;
+                font-weight: 500;
+                color: #FFF;
+            }
+        }
 
 
         .user-icon {
@@ -21,27 +41,36 @@
             align-items: center;
             justify-content: center;
             border-radius: 100px;
+            text-transform: uppercase;
         }
 
     }
 
     .home-card {
         background: #fff;
-        padding: 32px 16px 32px 16px;
+        padding: 16px;
         border-radius: 30px 30px 0px 0px;
         position: absolute;
-        top: 200px;
+        top: 150px;
         width: 100%;
-        height: calc(100vh - 220px);
+        height: calc(100vh - 150px);
+        overflow-y: auto;
+
+        .provider-head {
+            font-family: "Poetsen One", sans-serif !important;
+            font-weight: 400;
+            font-style: normal;
+            display: flex;
+            justify-content: center;
+            font-size: 28px;
+            color: #1E67B2;
+            padding-bottom: 30px;
+        }
 
         .provider-list {
-            margin-top: 20px;
+            // margin-top: 20px;
 
-            .provider-head {
-                font-size: 18px;
-                font-weight: 600;
-                text-transform: capitalize;
-            }
+
 
             .provider-card {
                 border: 1px solid #E0E6E2;
@@ -56,7 +85,7 @@
                 .provider-icon {
                     background: #4F88FE;
                     color: #FFFFFF;
-                    border: 2px solid #3fad3d;
+                    // border: 2px solid #3fad3d;
                     border-radius: 100px;
                     font-weight: 600;
                     height: 40px;
@@ -67,17 +96,25 @@
                 }
 
                 .provider-card-list {
+                    display: flex;
+                    // align-items: center;
+                    flex-direction: column;
+                    gap: 4px;
+
                     .provider-name {
                         color: #4F4F4F;
-                        font-size: 12px;
-                        font-weight: 400;
+                        font-size: 13px;
+                        font-weight: 500;
+                        text-transform: capitalize;
                     }
 
                     .provider-id {
                         color: #4F4F4F;
                         font-size: 14px;
                         font-weight: 600;
+                        text-transform: uppercase;
                     }
+
                 }
             }
         }

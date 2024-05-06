@@ -1,3 +1,23 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+
+
+<div id="toast">
+  <p-toast key="c" position="top-center" styleClass="custom-toast">
+    <ng-template let-message pTemplate="message">
+      <div class="toast-wrapper">
+        <ng-container *ngIf="message.severity == 'success'">
+          <img src="../assets/success-toast.svg" alt="success">
+        </ng-container>
+        <ng-container *ngIf="message.severity == 'error'">
+          <img src="../assets/toasterror.svg" alt="error">
+        </ng-container>
+        <ng-container *ngIf="message.severity == 'warn'">
+          <img src="../assets/warn-toast.svg" alt="warn">
+        </ng-container>
+        <p class="message white color-100">{{message.detail}}</p>
+      </div>
+    </ng-template>
+  </p-toast>
+</div>
