@@ -103,7 +103,7 @@ ion-input.custom {
         top: 230px;
         width: 100%;
         height: calc(100vh - 220px);
-        
+
 
         .login-card-header {
             font-family: "Poetsen One", sans-serif !important;
@@ -268,10 +268,12 @@ p-calendar {
 
 .p-datepicker table td>span {
     font-size: 12px;
+    color: #1E2023;
 }
 
 .p-datepicker table th>span {
     font-size: 13px;
+    color: #3fad3d;
 }
 
 .searchbar-clear-icon {
@@ -306,6 +308,7 @@ p-calendar .p-calendar input {
 
 .p-datepicker table td.p-datepicker-today>span {
     background: none;
+    box-shadow: none
 }
 
 .p-datepicker table td.p-datepicker-today>span.p-highlight {
