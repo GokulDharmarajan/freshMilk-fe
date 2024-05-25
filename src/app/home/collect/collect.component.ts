@@ -67,7 +67,6 @@ export class CollectComponent implements OnInit {
     };
     console.log('data', data);
     this.apiservice.getCollectList(data).subscribe((res: any) => {
-      console.log(res.data, '-----------------------> getCollectList');
       this.collectData = res.data;
 
       if (this.collectData.length > 0) {
@@ -77,19 +76,12 @@ export class CollectComponent implements OnInit {
         this.nodata = true;
         console.log('2');
       }
-      for (let e of this.collectData) {
-        console.log(e.totalLiter);
-        // this.totalLiter = e.totalLiter;
-      }
-
-      console.log(this.totalLiter, 'this.totalLiter');
       this.collectData.map((item: { amount: any }) => {
-        item.amount = parseInt(item.amount, 10); // 10 is the radix (base) for parsing integers
+        item.amount = parseInt(item.amount, 10);
       });
 
       this.apiservice.getMilkLitter(data).subscribe((res: any) => {
         this.totalLiter = res.data;
-        // console.log(total, '===========================');
       });
     });
   }

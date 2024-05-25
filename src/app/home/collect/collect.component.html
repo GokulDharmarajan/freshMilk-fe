@@ -1,7 +1,7 @@
 <div class="home-list">
   <div class="home-list-header">
     <div class="back-icon" (click)="routeHome()">
-      <img src="../../../assets/home/back.svg" alt="">
+      <img src="assets/home/back.svg" alt="back">
     </div>
     <div class="home-header-content">
       Collect
@@ -12,18 +12,14 @@
       Milk collect details
     </div>
     <div class="provider-form">
-      <!-- <p-calendar placeholder="select Date" />
-      {{totalLiter||'-'}} -->
       <div class="provider-herader">
         <div class="date-filer">
-          <!-- <p-calendar placeholder="select Date" /> -->
-          <!-- <p-calendar placeholder="Select Date" (onSelect)="onDateSelect($event)" [(ngModule)]=""></p-calendar> -->
           <p-calendar placeholder="Select Date" [(ngModel)]="dateSelect" (onSelect)="onDateSelect($event)"
             [dateFormat]="'dd-mm-yy'" [readonlyInput]="true"></p-calendar>
         </div>
         <div class="total-liter">
           <div class="content">Total</div>
-          {{totalLiter||'0'}} L
+          {{totalLiter || '0'}} L
         </div>
       </div>
       <div class="collect-data-list" *ngFor="let i of collectData">
@@ -31,38 +27,35 @@
           <div class="card-head">
             <div class="collect-card-head-content">
               {{i.providerName||'-'}}
-              <div class="sub-head">{{i.profileId||'-'}}</div>
+              <div class="sub-head">{{i.profileId || '-'}}</div>
             </div>
             <div class="time-filed">
-              <span> {{i.uploadDate}}</span>
-              <span> {{i.uploadTime}}</span>
+              <span>{{i.uploadDate}}</span>
+              <span>{{i.uploadTime}}</span>
             </div>
           </div>
-
-
           <div class="collect-data-group-list">
-
             <div class="collect-data-group">
               <div class="head">Liter</div>
-              <div class="content">{{i.liter||'-'}}</div>
+              <div class="content">{{i.liter || '-'}}</div>
             </div>
             <div class="collect-data-group">
               <div class="head">Mililiter</div>
-              <div class="content">0.{{i.mililiter||'-'}}</div>
+              <div class="content">0.{{i.mililiter || '-'}}</div>
             </div>
             <div class="collect-data-group">
               <div class="head">Temp</div>
-              <div class="content">{{i.fat||'-'}} %</div>
+              <div class="content">{{i.fat || '-'}} %</div>
             </div>
             <div class="collect-data-group">
               <div class="head">Amount</div>
-              <div class="content">₹ {{i.amount||'0'}}</div>
+              <div class="content">₹ {{i.amount || '0'}}</div>
             </div>
           </div>
         </div>
       </div>
       <div *ngIf="nodata" class="noData">
-        <img src="../../../assets/collection list.png" alt="">
+        <img src="assets/collection list.png" alt="noData">
       </div>
     </div>
   </div>

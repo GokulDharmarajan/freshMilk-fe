@@ -16,6 +16,8 @@ export class MilkAddComponent implements OnInit {
   id: any;
   providerName: any;
   userLogo: any;
+  userId: any;
+  totalLiter: any;
   constructor(
     private router: Router,
     private formBulider: FormBuilder,
@@ -27,7 +29,6 @@ export class MilkAddComponent implements OnInit {
       liter: ['', Validators.required],
       mililiter: ['', Validators.required],
       fat: ['', Validators.required],
-      // price: 0,
     });
   }
 
@@ -76,6 +77,24 @@ export class MilkAddComponent implements OnInit {
     this.router.navigate(['/home'], { queryParams: { id: this.id } });
     this.milkAddForm.reset();
   }
+  getAllProviderById() {
+    this.apiservice.getAllProviderById(this.id).subscribe((res: any) => {
+      console.log(res.data, '=========================_');
+      let data = res.data;
+      data.map((e: any) => {
+        console.log(e.providerName, e.providerId, 'e');
+        this.providerName = e.providerName;
+        this.userId = e.providerId;
+        if (this.providerName) {
+          const nameCharacters = this.providerName.split('');
+          const firstLetter = nameCharacters[0];
+          this.userLogo = firstLetter;
+        } else {
+          this.userLogo = '-';
+        }
+      });
+    });
+  }
   calculate() {
     if (this.milkAddForm.valid) {
       const liters = this.milkAddForm.value.liter;
@@ -97,19 +116,38 @@ export class MilkAddComponent implements OnInit {
       const currentDate = moment();
       const formattedDateTime = currentDate.format('YYYY-MM-DD HH:mm:ss');
       this.totalAmount = (liters + milliliters / 1000) * price;
+      const result = liters + milliliters / 1000;
+      this.totalLiter = Math.round(result * 100) / 100;
 
       let data = {
         providerId: this.id,
         liter: liters,
         fat: fat,
         mililiter: milliliters,
-        totalAmount: this.totalAmount,
+        totalAmount: Math.round(this.totalAmount * 100) / 100,
         uploadDate: formattedDateTime,
       };
-      // this.apiservice.addMilkData(data).subscribe(() => {});
+      console.log(data, '---------------------------------data');
 
+      let smsData = {
+        providerId: this.userId,
+        Name: this.providerName,
+        liter: this.totalLiter,
+        fat: fat,
+        totalAmount: Math.round(this.totalAmount * 100) / 100,
+        uploadDate: currentDate.format('DD-MM-YYYY HH:mmA'),
+      };
+      console.log(smsData, '----------------------------->smsData');
       this.apiservice.addMilkData(data).subscribe({
         next: (res: any) => {
+          this.apiservice.sendSms('+919952457246', smsData).subscribe({
+            next: (res: any) => {
+              console.log(res, 'sms send successfully');
+            },
+            error: (err) => {
+              console.log(err, 'sms not send');
+            },
+          });
           this.router.navigate(['/home']);
           console.log(data);
           console.log(res, '------------------> res');
@@ -124,28 +162,10 @@ export class MilkAddComponent implements OnInit {
           console.log(err.error.message, '------------> err.error.message');
         },
       });
-      console.log(data);
+      console.log(smsData);
     } else {
       this.milkAddForm.markAllAsTouched();
       this.utilService.errorToast('Input filed is empty');
     }
-  }
-
-  getAllProviderById() {
-    this.apiservice.getAllProviderById(this.id).subscribe((res: any) => {
-      console.log(res.data, '=========================_');
-      let data = res.data;
-      data.map((e: any) => {
-        console.log(e.providerName);
-        this.providerName = e.providerName;
-        if (this.providerName) {
-          const nameCharacters = this.providerName.split('');
-          const firstLetter = nameCharacters[0];
-          this.userLogo = firstLetter;
-        } else {
-          this.userLogo = '-';
-        }
-      });
-    });
   }
 }

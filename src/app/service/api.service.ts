@@ -35,18 +35,6 @@ export class ApiService {
       data,
     });
   }
-
-  // getCollectList(id: any) {
-  //   return this.http.get(
-  //     `${environment.url}/milk-collect/getCollectList/${id}`
-  //   );
-  // }
-
-  // getCollectList(id: any) {
-  //   return this.http.get(
-  //     `${environment.url}/milk-collect/getCollectList/${id}`
-  //   );
-  // }
   getCollectList(data: any) {
     return this.http.post(`${environment.url}/milk-collect/getCollectList`, {
       data,
@@ -58,16 +46,16 @@ export class ApiService {
       data,
     });
   }
-  // searchFunction(userId: any, searchTerm: string) {
-  //   console.log(searchTerm, 'search term');
-  //   return this.http.get(
-  //     `${environment.url}/provider/searchProvider?search=` + searchTerm + `?userId`
-  //   );
-  // }
   searchFunction(userId: any, searchTerm: string) {
     console.log(searchTerm, 'search term');
     return this.http.get(`${environment.url}/provider/searchProvider`, {
       params: { userId, search: searchTerm },
+    });
+  }
+  sendSms(to: any, body: any) {
+    return this.http.post(`${environment.url}/milk-collect/send`, {
+      to,
+      body,
     });
   }
 }
