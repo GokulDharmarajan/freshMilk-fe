@@ -18,7 +18,7 @@
         background: #ffff;
         position: absolute;
         width: 100%;
-        height: calc(100vh - 220px);
+        height: calc(100vh - 160px);
         top: 102px;
         border-radius: 24px 24px 0px 0px;
         padding: 16px;
@@ -48,6 +48,9 @@
                 font-size: 20px;
                 border-radius: 100px;
                 color: #fff;
+            }
+            .userid{
+                font-size: 13px;
             }
         }
 

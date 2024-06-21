@@ -15,7 +15,7 @@
       <div class="provider-herader">
         <div class="date-filer">
           <p-calendar placeholder="Select Date" [(ngModel)]="dateSelect" (onSelect)="onDateSelect($event)"
-            [dateFormat]="'dd-mm-yy'" [readonlyInput]="true"></p-calendar>
+            [dateFormat]="'dd-mm-yy'" [readonlyInput]="true" [maxDate]="maxDate"></p-calendar>
         </div>
         <div class="total-liter">
           <div class="content">Total</div>
@@ -26,7 +26,7 @@
         <div class="collect-card">
           <div class="card-head">
             <div class="collect-card-head-content">
-              {{i.providerName||'-'}}
+              {{i.providerName || '-'}}
               <div class="sub-head">{{i.profileId || '-'}}</div>
             </div>
             <div class="time-filed">
@@ -37,15 +37,13 @@
           <div class="collect-data-group-list">
             <div class="collect-data-group">
               <div class="head">Liter</div>
-              <div class="content">{{i.liter || '-'}}</div>
-            </div>
-            <div class="collect-data-group">
-              <div class="head">Mililiter</div>
-              <div class="content">0.{{i.mililiter || '-'}}</div>
+              <div class="content">{{i.totalLiters || '0'}}</div>
             </div>
             <div class="collect-data-group">
               <div class="head">Temp</div>
-              <div class="content">{{i.fat || '-'}} %</div>
+              <div class="content">{{i.fat}}
+                <ion-icon name="thermometer-outline" style="font-size: 16px;"></ion-icon>
+              </div>
             </div>
             <div class="collect-data-group">
               <div class="head">Amount</div>

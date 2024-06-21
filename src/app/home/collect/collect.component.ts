@@ -15,6 +15,7 @@ export class CollectComponent implements OnInit {
   totalLiter: any;
   dateSelect: Date = new Date();
   nodata: boolean = false;
+  maxDate!: Date;
   constructor(
     private router: Router,
     private formBulider: FormBuilder,
@@ -28,6 +29,7 @@ export class CollectComponent implements OnInit {
   ionViewWillEnter() {
     this.userId = localStorage.getItem('userId');
     this.getAllCollectList();
+    this.maxDate = new Date();
   }
   routeHome() {
     this.router.navigate(['/home/home-list']);
@@ -68,7 +70,8 @@ export class CollectComponent implements OnInit {
     console.log('data', data);
     this.apiservice.getCollectList(data).subscribe((res: any) => {
       this.collectData = res.data;
-
+      console.log(this.collectData);
+     
       if (this.collectData.length > 0) {
         this.nodata = false;
         console.log('1');

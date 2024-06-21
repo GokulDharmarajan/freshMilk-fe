@@ -114,6 +114,7 @@
                     .collect-data-group-list {
                         display: flex;
                         justify-content: space-between;
+                        align-items: center;
 
                         .collect-data-group {
                             display: flex;
@@ -133,6 +134,8 @@
                                 font-weight: 600;
                                 font-size: 13px;
                                 color: #3D3D4E;
+                                display: flex;
+                                align-items: center;
                             }
                         }
                     }

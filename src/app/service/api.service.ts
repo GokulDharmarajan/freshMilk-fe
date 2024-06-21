@@ -13,7 +13,7 @@ export class ApiService {
   login(data: any) {
     return this.http.post(`${environment.url}/useManagement/loginUser`, data);
   }
-  getProviderId(id: any) {
+  getProviderId(id: number | string | null) {
     return this.http.get(`${environment.url}/provider/getProviderId/${id}`);
   }
   createProvider(data: any) {
@@ -21,11 +21,11 @@ export class ApiService {
       data,
     });
   }
-  getAllProvider(id: any) {
+  getAllProvider(id: number) {
     return this.http.get(`${environment.url}/provider/getAllProvider/${id}`);
   }
 
-  getAllProviderById(id: any) {
+  getAllProviderById(id: number) {
     return this.http.get(
       `${environment.url}/provider/getAllProviderbyId/${id}`
     );
@@ -46,7 +46,7 @@ export class ApiService {
       data,
     });
   }
-  searchFunction(userId: any, searchTerm: string) {
+  searchFunction(userId: number, searchTerm: string) {
     console.log(searchTerm, 'search term');
     return this.http.get(`${environment.url}/provider/searchProvider`, {
       params: { userId, search: searchTerm },
